@@ -10,7 +10,7 @@ import pandas as pd
 import streamlit as st
 from st_aggrid import AgGrid, GridOptionsBuilder
 
-st.header("Stock alert system")
+st.header("Stock alert system_v02")
 
 
 def show_grid(newline):
