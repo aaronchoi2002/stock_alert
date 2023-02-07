@@ -8,7 +8,7 @@ Created on Tue Feb  7 12:18:48 2023
 import yfinance as yf
 import pandas as pd
 import streamlit as st
-from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode
+from st_aggrid import AgGrid, GridOptionsBuilder
 
 st.header("Stock alert system")
 
