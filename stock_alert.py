@@ -10,7 +10,7 @@ import pandas as pd
 import streamlit as st
 from st_aggrid import AgGrid, GridOptionsBuilder
 
-st.header("Stock alert system_v02")
+st.header("Stock alert system_v03")
 
 
 def show_grid(newline):
@@ -25,7 +25,10 @@ def show_grid(newline):
     df.reset_index(inplace=True)
     
     if newline == 'yes':
-        data = [["", "", "",""]]
+        ticker = st.sidebar.text_input('Add new ticker')
+        alert = st.sidebar.text_input('Add new alert')
+        remark = st.sidebar.text_input('Add new remark')
+        data = [[ticker, alert, remark,""]]
         df_empty = pd.DataFrame(data, columns=["Symbol", "Alert", "Remark","price"])
         df = pd.concat([df, df_empty], axis=0, ignore_index=True)
 
