@@ -19,7 +19,7 @@ def show_grid(newline):
     df = df.set_index('Symbol')
 
     tickers = df.index.to_list()
-    price = yf.download(tickers, period="5d")["Adj Close"].T
+    price = yf.download(tickers, period="5d", interval="15m")["Adj Close"].T
     price = price.iloc[:,-1] # get the latest price
     df["price"] = round(price,2)
     df.reset_index(inplace=True)
