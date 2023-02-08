@@ -10,7 +10,7 @@ import pandas as pd
 import streamlit as st
 from st_aggrid import AgGrid, GridOptionsBuilder
 
-st.header("Stock alert system_v03")
+st.header("Stock alert system_v05")
 
 
 def show_grid(newline):
@@ -64,23 +64,17 @@ def alert(grid_table):
 
 # start
 
-tab1, tab2 = st.tabs(["Alert", "Data"])
-with tab1:
-    addline = st.sidebar.radio('Add New Stock', options=['yes', 'no'], index=1, horizontal=True)
-    grid_table = show_grid(addline)
-    st.button("Update", on_click=update, args=[grid_table])
-    grid_table_df = pd.DataFrame(grid_table['data'])   
-    st.markdown("---")  
-    alert(grid_table_df)
+addline = st.sidebar.radio('Add New Stock', options=['yes', 'no'], index=1, horizontal=True)
+grid_table = show_grid(addline)
+st.button("Update", on_click=update, args=[grid_table])
+grid_table_df = pd.DataFrame(grid_table['data'])   
+st.markdown("---")  
+alert(grid_table_df)
 
-    
-with tab2:
-    grid_table_df
-
-    df_export = grid_table_df.to_csv()
-    st.download_button(
-        label="Download data as CSV",
-        data=df_export,
-        file_name='Alert.csv',
-        mime='text/csv',
+df_export = grid_table_df.to_csv()
+st.download_button(
+    label="Download data as CSV",
+    data=df_export,
+    file_name='Alert.csv',
+    mime='text/csv',
 )
