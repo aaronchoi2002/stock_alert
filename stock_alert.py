@@ -37,7 +37,6 @@ def show_grid(newline):
         gridOptions=gb.build(),
         reload_data=False,
         fit_columns_on_grid_load=True,
-        update_mode=GridUpdateMode.MODEL_CHANGED,
         allow_unsafe_jscode=True,
         )
     return grid_table
